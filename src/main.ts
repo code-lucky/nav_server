@@ -9,6 +9,7 @@ import { WINSTON_LOGGER_TOKEN } from './winston/winston.module';
 import { CustomExceptionFilter } from './filter/custom-exception.filter';
 import { UnloginFilter } from './guard/unlogin.filter';
 
+
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   // 开启跨域处理
@@ -23,6 +24,7 @@ async function bootstrap() {
   app.useGlobalInterceptors(new InvokeRecordInterceptor())
   app.useGlobalFilters(new UnloginFilter())
   app.useGlobalFilters(new CustomExceptionFilter())
+
 
   const config = new DocumentBuilder()
     .setTitle('nest-cli')

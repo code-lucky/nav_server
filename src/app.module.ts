@@ -23,9 +23,14 @@ import { CategoryModule } from './api/front/category/category.module';
 import { CategoryNavModule } from './api/front/category-nav/category-nav.module';
 import { Category } from './api/entitys/category.entity';
 import { CategoryNav } from './api/entitys/category_nav.entity';
-
+import { ServeStaticModule } from '@nestjs/serve-static';
+import { join } from 'path';
 @Module({
   imports: [
+    ServeStaticModule.forRoot({
+      rootPath: join(__dirname, '..', 'uploads'),
+      serveRoot: '/uploads/',
+    }),
     WinstonModule.forRoot({
       level: 'debug',
       transports: [
