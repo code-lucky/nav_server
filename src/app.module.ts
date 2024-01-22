@@ -25,6 +25,7 @@ import { Category } from './api/entitys/category.entity';
 import { CategoryNav } from './api/entitys/category_nav.entity';
 import { ServeStaticModule } from '@nestjs/serve-static';
 import { join } from 'path';
+import { UploadModule } from './api/upload/upload.module';
 @Module({
   imports: [
     ServeStaticModule.forRoot({
@@ -100,7 +101,8 @@ import { join } from 'path';
     RoleModule,
     MenuModule,
     CategoryModule,
-    CategoryNavModule
+    CategoryNavModule,
+    UploadModule
   ],
   controllers: [AppController],
   providers: [
